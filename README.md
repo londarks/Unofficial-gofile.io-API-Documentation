@@ -51,6 +51,7 @@ Must contain expiration date of the upload in the form of timestamp.
 exemple Python
 ```python
     import requests
+    from requests_toolbelt.multipart.encoder import MultipartEncoder
     import json
 
     mp_encoder = MultipartEncoder(
