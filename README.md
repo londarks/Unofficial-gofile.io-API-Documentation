@@ -66,7 +66,7 @@ exemple Python
     )
     scrap =  r.json()
     #send "Token file" 123Abc
-    result = scrap['data']['code']
+    Token = scrap['data']['code']
 ```
   **Response example**
 ```
@@ -91,7 +91,7 @@ exemple Python
     session.get(sendToken, headers=headers)
     session.get(validating, headers=headers)
 
-    r = 'https://srv-file9.gofile.io/download/{}/{}'.format(Token,file_name)
+    r = 'https://srv-file9.gofile.io/download/{}/file_name.txt'.format(Token)
 
 ```
 Your link should look like this: `https://srv-file9.gofile.io/download/123Abc/file_name.txt`
