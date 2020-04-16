@@ -48,13 +48,6 @@ Must contain tags of the upload. If multiple tags, seperate them with comma (exa
 formData integer
 Must contain expiration date of the upload in the form of timestamp.
 
-  **Response example**
-```
-{"status":"ok","data":{"code":"123Abc","removalCode":"3ZcBq12nTgb4cbSwJVYY"}}
-```
-
-
-### Uploading the code file
 exemple Python
 ```python
     import requests
@@ -73,6 +66,10 @@ exemple Python
     scrap =  r.json()
     #send "Token file" 123Abc
     result = scrap['data']['code']
+```
+  **Response example**
+```
+{"status":"ok","data":{"code":"123Abc","removalCode":"3ZcBq12nTgb4cbSwJVYY"}}
 ```
 And your file will be at: `https://gofile.io/?c=123Abc`
 
