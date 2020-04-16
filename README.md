@@ -13,8 +13,7 @@
 
 
 ### UploadFile
-To upload a file to *gofile.io* you must use *multipart / form-data*, a standard method
-To upload file
+To upload a file to *gofile.io* you must use *multipart / form-data*.
 
 ### Finding server
 
@@ -34,21 +33,21 @@ formData files
 Must contain one or multiple files.
 - **email**<br>
 formData string
-Must contain email adress syntax. The upload will be stored on this account.
+Must contain an email address syntax. The upload will be stored on this account.
 - **description**<br>
 formData string
-Must contain description of the upload
+Must contain a description of the upload
 - **password**<br>
 formData string
-Must contain password of the upload
+Must contain a password of the upload
 - **tags**<br>
 formData string
-Must contain tags of the upload. If multiple tags, seperate them with comma (example : tags1,tags2)
+Must contain the tags of the upload. If there are multiple tags, seperate them with comas (example : tags1,tags2)
 - **expire**<br>
 formData integer
-Must contain expiration date of the upload in the form of timestamp.
+Must contain an expiration date of the upload in a form of timestamp.
 
-exemple Python
+example in python
 ```python
     from requests_toolbelt.multipart.encoder import MultipartEncoder
     import requests
@@ -72,12 +71,12 @@ exemple Python
 ```
 {"status":"ok","data":{"code":"123Abc","removalCode":"3ZcBq12nTgb4cbSwJVYY"}}
 ```
-And your file will be at: `https://gofile.io/?c=123Abc`
+Your access link will look like this :`https://gofile.io/?c=123Abc`
 
 ### Validating your file
-So that the direct download, without having to enter the website is released, we need to validate our file token to the server
+To validate the file and get the direct link, you will need to validate your token on the server, by sending it your token
 
-exemple Python
+example in python
 ```python
     import requests
 
@@ -94,7 +93,7 @@ exemple Python
     r = 'https://srv-file9.gofile.io/download/{}/file_name.txt'.format(Token)
 
 ```
-Your link should look like this: `https://srv-file9.gofile.io/download/123Abc/file_name.txt`
+Your access link will look like this: `https://srv-file9.gofile.io/download/123Abc/file_name.txt`
 
 <br>
 
