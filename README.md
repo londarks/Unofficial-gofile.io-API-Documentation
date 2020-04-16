@@ -98,4 +98,4 @@ Your link should look like this: `https://srv-file9.gofile.io/download/123Abc/fi
 <br>
 
 ## Autor
-- **Londarks** - _Developer & Member of He4rt Developers_ - [Twitter](https://twitter.com/londarks
+- **Londarks** - _Developer & Member of He4rt Developers_ - [Twitter](https://twitter.com/londarks)
