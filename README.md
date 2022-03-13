@@ -3,7 +3,7 @@
 <h1 align="center">
   <img src="https://gofile.io/dist/img/logo-big.png" alt="php" width="120">
 </h1>
-<p align="center">GoFile API</p>
+<p align="center">GoFile API (outdated)</p>
 
 <p align="center">
   <a href="https://opensource.org/licenses/MIT">
