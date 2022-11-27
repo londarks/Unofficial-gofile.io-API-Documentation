@@ -15,6 +15,64 @@
 ### UploadFile
 To upload a file to *gofile.io* you must use *multipart / form-data*.
 
+### New format to be able to upload
+```python
+from requests_toolbelt.multipart.encoder import MultipartEncoder
+import aiohttp
+import asyncio
+import sys
+
+import requests
+
+async def encode_file(name:str) -> dict:
+    mp_encoder = MultipartEncoder(
+        fields={
+            'filesUploaded': (name, open(name, 'rb'))
+        }
+    )
+    return mp_encoder
+
+
+async def get_server() -> str:
+    url = "https://api.gofile.io/getServer"
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as resp:
+            server = await resp.json()
+            return server['data']['server']
+
+async def upload_server(server:str) -> dict:
+    try:
+        url = f"https://{server}.gofile.io/uploadFile"
+        data_json = await encode_file("music.m4a")
+
+        #Unable to send file using async methodologies like aiohttp, some kind of weird error happens
+        #It says the uploaded file format is incorrect
+        #I still don't have a solution for this.
+        #ERROR: Only io.IOBase, multidict and (name, file) pairs allowed, use .add_field() for passing more complex parameters
+        response = requests.post(
+            url,
+            data=data_json, 
+            headers={'Content-Type': data_json.content_type}
+        )
+
+        return response.json()
+
+    except Exception as e:
+        trace_back = sys.exc_info()[2]
+        line = trace_back.tb_lineno
+        print(f"ERROR UPLOAD -> {e} | {line}")
+
+async def main() -> None:
+    server_get = await get_server()
+    response = await upload_server(server=server_get)
+    print('LINK: ',response['data']['downloadPage'])
+
+asyncio.run(main())
+
+```
+
+
+#outdated:
 ### Finding server
 
 ```
@@ -98,4 +156,4 @@ Your access link will look like this: `https://srv-file9.gofile.io/download/123A
 <br>
 
 ## Autor
-- **Londarks** - _Developer & Member of He4rt Developers_ - [Twitter](https://twitter.com/londarks)
+- **Londarks** - Developer - [Twitter](https://twitter.com/londarks)
